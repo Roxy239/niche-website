@@ -1,0 +1,79 @@
+[
+    {
+        "key": 1,
+        "name": "Classic Fusion",
+        "fee": 500,
+        "description": "BLACK STRUCTURED LINED RUBBER STRAPS",
+        "img": "https://i.ibb.co/q1JnM6d/drz-p-D-Bt-L20y48-unsplash.jpg"
+    },
+    {
+        "key": 2,
+        "name": " Mordern Fusion",
+        "fee": 930,
+        "description": "FULL MAGIC GOLD 42 MM",
+        "img": "https://i.ibb.co/6YcW4Yf/alvaro-bernal-Rg-IKRYhm-G2k-unsplash.jpg"
+    },
+    {
+        "key": 3,
+        "name": " Couple edition",
+        "fee": 230,
+        "description": "TOURBILLON CARBON WHITE",
+        "img": "https://i.ibb.co/jGCvy35/bradley-ziffer-e-AOl9-QREIY0-unsplash.jpg"
+    },
+    {
+        "key": 4,
+        "name": "Old Mordern Fusion",
+        "fee": 1500,
+        "description": "BLACK AND WHITE STRUCTURED LINED RUBBER STRAPS",
+        "img": "https://i.ibb.co/FD7Jdvj/hunters-race-SDg-Olir-Ia-Y-unsplash.jpg"
+    },
+    {
+        "key": 5,
+        "name": "Black Fusion ",
+        "fee": 200,
+        "description": "POLISHED 18K MAGIC GOLD",
+        "img": "https://i.ibb.co/58LKYFx/hunters-race-Vk3-Qiwyr-AUA-unsplash.jpg"
+    },
+    {
+        "key": 6,
+        "name": "Spirit of Big Bang",
+        "fee": 300,
+        "description": "MP-09 TOURBILLON BI-AXIS RED 3D CARBON",
+        "img": "https://i.ibb.co/7KG7c6W/john-torcasio-133-Vq4t-Tp-BQ-unsplash.jpg"
+    },
+    {
+        "key": 7,
+        "name": "Sporty Fusion",
+        "fee": 300,
+        "description": "RED  3D CARBON STRUCTURED LINED RUBBER STRAP",
+        "img": "https://i.ibb.co/zsy3nzz/john-torcasio-TJrkkhd-B39-E-unsplash.jpg "
+    },
+    {
+        "key": 8,
+        "name": " Big Bang",
+        "fee": 300,
+        "description": "BIG BANG UNICO BERLUTI ALUMINIO",
+        "img": " https://i.ibb.co/Y0xsXLD/klickors-moe-1-Cji-CJg-HOOY-unsplash.jpg"
+    },
+    {
+        "key": 9,
+        "name": "Novelties",
+        "fee": 300,
+        "description": "UNICO SUMMER DJ 42MM ",
+        "img": "https://i.ibb.co/mvBHyDr/kyle-cut-media-Te-OH1b-t3-Nc-unsplash.jpg"
+    },
+    {
+        "key": 10,
+        "name": "Vintage Edition",
+        "fee": 300,
+        "description": "INTEGRAL TOURBILLON FULL SAPPHIRE",
+        "img": " https://i.ibb.co/hZ4Yx0J/michael-surazhsky-c-ZD-FY-Kv2o-unsplash.jpg"
+    },
+    {
+        "key": 11,
+        "name": "Old Classic Fusion",
+        "fee": 300,
+        "description": "SANG BLEU II BLUE CERAMIC",
+        "img": "https://i.ibb.co/4sQnmwS/paul-cuoco-CO2v-Oh-Pqlr-M-unsplash.jpg"
+    }
+]
