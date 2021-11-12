@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
+import SingleWatch from '../SingleWatch/SingleWatch';
+import './AllWatches.css'
 
-import Watch from '../Watch/Watch';
-import './Watches.css';
 
-const Watches = () => {
+
+
+import './AllWatches.css';
+
+const AllWatches = () => {
     const [watches, setWatches] = useState([]);
 
     const [searchText, setSearchText] = useState("");
@@ -43,14 +47,16 @@ const Watches = () => {
             <h2 className="text-primary mt-5">Our Watches</h2>
             <div className="watch-container">
                 {
-                    watches?.slice(0, 6).map(watch => <Watch
+                    watches.map(watch => <SingleWatch
                         key={watch.key}
                         watch={watch}
-                    ></Watch>)
+                    >
+
+                    </SingleWatch>)
                 }
             </div>
         </div>
     );
 };
 
-export default Watches;
+export default AllWatches;
