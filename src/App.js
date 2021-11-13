@@ -12,6 +12,7 @@ import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Booking from './Pages/Booking/Booking/Booking';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -36,8 +37,11 @@ function App() {
               <Register></Register>
             </Route>
             <PrivateRoute path="/booking/:watchId">
-              {/* /:serviceId */}
+
               <Booking></Booking>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
             </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>

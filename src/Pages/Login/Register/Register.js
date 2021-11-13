@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
+    const history = useHistory();
     const { user, registerUser, isLoading, authError } = useAuth();
     const handleOnChange = e => {
         const field = e.target.name;
@@ -19,18 +20,18 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password);
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
     return (
         <div>
             <h2> Register now</h2>
             {!isLoading && <form onSubmit={handleLoginSubmit}>
-                {/* <div class="form-group mx-auto w-25">
+                <div class="form-group mx-auto w-25">
                     <label for="name">Your name</label>
                     <input onChange={handleOnChange} name="name" type="name" class="form-control" id="name" placeholder="Enter name" />
 
-                </div> */}
+                </div>
                 <div class="form-group mx-auto w-25">
                     <label for="exampleInputEmail1">Email address</label>
                     <input onChange={handleOnChange} name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />

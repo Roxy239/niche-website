@@ -1,6 +1,6 @@
 // import initializeFirebase from "../Pages/Login/Login/Firebase/firebase.init";
 import { useState, useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import initializeFirebase from "./../Pages/Login/Firebase/firebase.init";
 import swal from 'sweetalert';
 
@@ -16,11 +16,24 @@ const useFirebase = () => {
     const auth = getAuth();
     // const user = auth.currentUser;
 
-    const registerUser = (email, password,) => {
+    const registerUser = (email, password, name, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                //send name to firebase 
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                }).then(() => {
+                    // Profile updated!
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
+                history.replace('/');
             })
             .then(() => {
                 swal("Good job!", "Account has been created!", "success")
