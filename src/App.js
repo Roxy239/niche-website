@@ -13,6 +13,7 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Booking from './Pages/Booking/Booking/Booking';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrderlist from './Pages/MyOrderlist/MyOrderlist';
 
 function App() {
   return (
@@ -24,10 +25,10 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
-            <Route path="/home">
+            <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route path="/allwatches">
+            <Route exact path="/allwatches">
               <AllWatches></AllWatches>
             </Route>
             <Route path="/login">
@@ -39,6 +40,9 @@ function App() {
             <PrivateRoute path="/booking/:watchId">
 
               <Booking></Booking>
+            </PrivateRoute>
+            <PrivateRoute path="/mylist">
+              <MyOrderlist></MyOrderlist>
             </PrivateRoute>
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>

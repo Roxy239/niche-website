@@ -20,9 +20,14 @@ const AllWatches = () => {
             let filter_data = watches.filter(obj => obj.name.includes(searchText));
             setWatches(filter_data)
         } else {
-            fetch('./watches.json')
+            fetch('http://localhost:5000/watches')
                 .then(res => res.json())
-                .then(data => setWatches(data));
+                .then(data => setWatches(data))
+
+                .catch((error) => {
+
+                });
+            console.log(watches);
         }
     }, [searchText])
 
@@ -48,7 +53,7 @@ const AllWatches = () => {
             <div className="watch-container">
                 {
                     watches.map(watch => <SingleWatch
-                        key={watch.key}
+                        key={watch._id}
                         watch={watch}
                     >
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import axios from "axios"
 
 import Watch from '../Watch/Watch';
 import './Watches.css';
@@ -9,16 +9,44 @@ const Watches = () => {
 
     const [searchText, setSearchText] = useState("");
 
+    // console.log(watches)
+
+
+    /*
+
+    import axios from "axios"
+
+        const fetchData = () => {
+        return axios.get("https://randomuser.me/api/")
+            .then((response) => console.log(response.data));}
+
+
+    */
+
+
+
 
 
     useEffect(() => {
         if (searchText !== "") {
-            let filter_data = watches.filter(obj => obj.name.includes(searchText));
+            let filter_data = watches.filter(obj => obj.name.toLowerCase().includes(searchText.toLowerCase()));
             setWatches(filter_data)
         } else {
-            fetch('./watches.json')
-                .then(res => res.json())
-                .then(data => setWatches(data));
+            axios.get('http://localhost:5000/watches').then((res) => {
+                setWatches(res.data)
+            }).catch((error) => {
+
+            });
+
+            // fetch('http://localhost:5000/watches')
+            //     .then(res => {
+            //         console.log(res)
+            //         res.json();
+            //     })
+            //     .then(data =>  setWatches(data) )
+            //     .catch((error) => {
+
+            //     });
         }
     }, [searchText])
 
@@ -44,7 +72,7 @@ const Watches = () => {
             <div className="watch-container">
                 {
                     watches?.slice(0, 6).map(watch => <Watch
-                        key={watch.key}
+                        key={watch._id}
                         watch={watch}
                     ></Watch>)
                 }

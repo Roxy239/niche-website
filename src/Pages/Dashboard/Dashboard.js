@@ -1,11 +1,16 @@
-import React from 'react';
+import './Dashboard.css';
+import Pagecontent from './Pagecontent';
+import Sidebar from './Sidebar';
 
-const Dashboard = () => {
-    return (
-        <div>
-            <h2>this is dashboard</h2>
-        </div>
-    );
-};
+function Dashboard() {
+  return (
+    <div className="d-flex" id="wrapper">
+      <Sidebar />
+      <Pagecontent />
+
+      
+    </div>
+  );
+}
 
 export default Dashboard;

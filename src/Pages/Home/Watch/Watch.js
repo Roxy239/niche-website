@@ -4,7 +4,7 @@ import './Watch.css';
 
 const Watch = ({ watch }) => {
 
-    const { _id, key, name, fee, description, img } = watch;
+    const { _id, name, fee, description, img } = watch;
 
     return (
         <div className="watch pb-3">
@@ -13,8 +13,8 @@ const Watch = ({ watch }) => {
             <h6>Price:${fee}</h6>
             <p className="px-3">{description}</p>
             {/* <button className=" btn btn-dark">Buy now</button> */}
-            <Link to={`/booking/${key}`}>
-                <button className=" btn btn-dark">Book now</button>
+            <Link to={`/booking/${_id}`}>
+                <button className=" btn btn-dark">Buy now</button>
             </Link>
         </div>
     );

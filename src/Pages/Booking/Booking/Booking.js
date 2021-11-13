@@ -2,21 +2,36 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router-dom'
 import useAuth from '../../../hooks/useAuth';
 import './Booking.css';
+import axios from 'axios';
 
 const Booking = () => {
     const { watchId } = useParams();
     const { user } = useAuth();
+    const history = useHistory();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        // console.log(data)
+        data = { ...data, watch_name: watch.name }
+        axios.post('http://localhost:5000/orders', data)
+            .then(res => {
+
+
+                if (res.data) {
+                    history.push('/mylist')
+                }
+                // console.log(res);
+            })
+    };
 
     // details of a product
     const [watch, setwatch] = useState({})
     const [watches, setwatches] = useState([])
     useEffect(() => {
-        fetch('../watches.json')
+        fetch('http://localhost:5000/watches')
             .then(res => res.json())
             .then(data => setwatches(data));
     }, [])
@@ -24,7 +39,7 @@ const Booking = () => {
     useEffect(() => {
         if (watches.length > 0) {
             console.log(watches, watchId)
-            const data = watches.find((obj) => obj.key === Number(watchId))
+            const data = watches.find((obj) => obj._id === watchId)
             console.log(data);
             setwatch(data)
         }
@@ -38,7 +53,7 @@ const Booking = () => {
             {/* trying */}
             <div className="row">
                 <div className="col-md-6">
-                    <h2>this is booking: {watch?.key}</h2>
+                    <h2>this is booking: {watch?._id}</h2>
                     <img style={{ width: "250px", height: "250px" }} src={watch?.img} alt="" />
                     <p> Fee:{watch?.fee}</p>
                     <p>Description:{watch?.description}</p>
@@ -51,10 +66,10 @@ const Booking = () => {
                         {/* register your input into the hook by invoking the "register" function */}
                         <input type='text' defaultValue={user.displayName} {...register("name")} placeholder="name" />
                         <input type='text' defaultValue={user.email} {...register("email")} placeholder="email" />
-                        <input type='text' value={watch?.name} {...register("package")} placeholder="package name" />
+                        <input type='text' value={watch?.name} {...register("watch_name")} placeholder="watch name" />
 
                         <input type="text" {...register("address", { required: true })} placeholder="address" />
-                        <input type="text" {...register("phn", { required: true })} placeholder="contact" />
+                        <input type="text" {...register("phone", { required: true })} placeholder="contact" />
 
 
 
