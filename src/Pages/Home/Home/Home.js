@@ -1,5 +1,5 @@
 import React from 'react';
-import Review from '../../Dashboard/Review';
+// import Review from '../../Dashboard/Review';
 
 import Banner from '../Banner/Banner';
 import Reviews from '../Reviews/Reviews';

@@ -6,7 +6,7 @@ import useAuth from '../../hooks/useAuth';
 
 const MyOrderlist = () => {
     const { user } = useAuth();
-    const [booking, setBooking] = useState([])
+    const [booking, setBooking] = useState([]);
     const [loading, setLoadiong] = useState(false)
 
     console.log(user)
