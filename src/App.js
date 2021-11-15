@@ -14,8 +14,16 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Booking from './Pages/Booking/Booking/Booking';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrderlist from './Pages/MyOrderlist/MyOrderlist';
+import Admin from './Pages/Dashboard/Admin/Admin';
+// import useAuth from './hooks/useAuth';
+import { useState } from 'react';
 
 function App() {
+  // const { user, logout } = useAuth();
+  const [isAdmin, setAdmin] = useState(false);
+  // if (user.role === "admin") {
+  //   setAdmin(true);
+  // }
   return (
     <div className="App">
       <AuthProvider>
@@ -46,7 +54,13 @@ function App() {
               <MyOrderlist></MyOrderlist>
             </PrivateRoute>
             <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
+              {/* {isAdmin}? */}
+              {/* <Admin />: */}
+              <Dashboard />
+              {/* <Dashboard></Dashboard> */}
+            </PrivateRoute>
+            <PrivateRoute path="/admin">
+              <Admin />
             </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>

@@ -1,19 +1,19 @@
 import './Dashboard.css';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch
+    // BrowserRouter as Router,
+    // Switch,
+    // Route,
+    Link
+    // useParams,
+    // useRouteMatch
 } from "react-router-dom";
 
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 
 import * as BsIcon from 'react-icons/bs';
 import * as MdIcon from 'react-icons/md';
 
-function Sidebar({ url, path }) {
+function Adminnav({ url, path }) {
     // let { path, url } = useRouteMatch();
     const { user, logout } = useAuth();
 
@@ -25,7 +25,7 @@ function Sidebar({ url, path }) {
                 {/* <a href="#" className="list-group-item list-group-item-action bg-transparent second-text active">
                     <i className="fas fa-tachometer-alt me-2"></i>Dashboard</a> */}
 
-                <Link to={`${url}/myorder`} className="list-group-item list-group-item-action bg-transparent second-text fw-bold"><BsIcon.BsClipboardCheck /> My Orders</Link>
+                <Link to={`${url}/allorder`} className="list-group-item list-group-item-action bg-transparent second-text fw-bold"><BsIcon.BsClipboardCheck /> My Orders</Link>
                 <Link to={`${url}/review`} className="list-group-item list-group-item-action bg-transparent second-text fw-bold"><MdIcon.MdRateReview />Review</Link>
                 {/* <a href="#" className="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <MdIcon.MdRateReview /> Review</a> */}
@@ -38,4 +38,4 @@ function Sidebar({ url, path }) {
     );
 }
 
-export default Sidebar;
+export default Adminnav;

@@ -10,11 +10,13 @@ function Tabled() {
     const [loading, setLoadiong] = useState(false)
 
     console.log(user)
+
     useEffect(() => {
         fetch('http://localhost:5000/orders?email=' + user?.email)
             .then(res => res.json())
             .then(data => setBooking(data));
     }, [loading])
+
     const cancelBooking = (obj) => {
         const flag = window.confirm("Are you sure?");
         if (flag) {

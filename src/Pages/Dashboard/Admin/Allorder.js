@@ -2,16 +2,16 @@ import './Dashboard.css';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios'
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 
-function Tabled() {
+function Allorder() {
     const { user } = useAuth();
     const [booking, setBooking] = useState([])
     const [loading, setLoadiong] = useState(false)
 
     console.log(user)
     useEffect(() => {
-        fetch('http://localhost:5000/orders?email=' + user?.email)
+        fetch('http://localhost:5000/adminall')
             .then(res => res.json())
             .then(data => setBooking(data));
     }, [loading])
@@ -64,4 +64,4 @@ function Tabled() {
     );
 }
 
-export default Tabled;
+export default Allorder;
