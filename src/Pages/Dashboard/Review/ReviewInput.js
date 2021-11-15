@@ -31,7 +31,7 @@ function ReviewInput() {
                     </div>
                 </div>
                 <div className="mb-3 row">
-                    <label for="rating" className="col-sm-2 col-form-label">Rating:</label>
+                    <label for="rating" className="col-sm-2 col-form-label"> Rating:</label>
                     <div className="col-sm-2">
                         <select name="rating" id="rating" {...register("rating")} >
                             <option value="5">5</option>
@@ -45,7 +45,7 @@ function ReviewInput() {
                 <div className="mb-3 row">
                     <div className="form-floating">
                         <textarea className="form-control" {...register("review")} placeholder="Leave a comment here" id="floatingTextarea2" style={{ "height": "150px" }}></textarea>
-                        <label for="floatingTextarea2">Review</label>
+                        <label for="floatingTextarea2 "> Review</label>
                     </div>
                     <div className="d-grid gap-2 col-6 mx-auto">
                         {/* <input type="submit" /> */}

@@ -2,7 +2,8 @@ import './Dashboard.css';
 import Pagecontent from './Pagecontent';
 import Review from './Review/Review';
 import Sidebar from './Sidebar';
-
+import { useHistory } from "react-router-dom"
+import useAuth from '../../hooks/useAuth';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +17,11 @@ import Payment from './Payment';
 
 function Dashboard() {
   let { path, url } = useRouteMatch();
-  console.log(path, url);
+  const history = useHistory()
+  const { role } = useAuth()
+  if (role === "admin") {
+    history.push("/admin/dashboard")
+  }
   return (
     <div className="d-flex mt-2" id="wrapper">
       <Router>

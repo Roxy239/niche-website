@@ -15,15 +15,20 @@ import Booking from './Pages/Booking/Booking/Booking';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrderlist from './Pages/MyOrderlist/MyOrderlist';
 import Admin from './Pages/Dashboard/Admin/Admin';
-// import useAuth from './hooks/useAuth';
-import { useState } from 'react';
+import useAuth from './hooks/useAuth';
+import { useState, useEffect } from 'react';
+// import useFirebase from './hooks/useFirebase';
 
 function App() {
-  // const { user, logout } = useAuth();
-  const [isAdmin, setAdmin] = useState(false);
-  // if (user.role === "admin") {
+  // const { user } = useAuth();
+
+  // console.log("testing from app", user);
+  // const [isAdmin, setAdmin] = useState(false);
+
+  // if (user?.role === "admin") {
   //   setAdmin(true);
   // }
+
   return (
     <div className="App">
       <AuthProvider>
@@ -50,18 +55,18 @@ function App() {
 
               <Booking></Booking>
             </PrivateRoute>
-            <PrivateRoute path="/mylist">
-              <MyOrderlist></MyOrderlist>
-            </PrivateRoute>
+
             <PrivateRoute path="/dashboard">
-              {/* {isAdmin}? */}
-              {/* <Admin />: */}
               <Dashboard />
-              {/* <Dashboard></Dashboard> */}
+
             </PrivateRoute>
-            <PrivateRoute path="/admin">
+            <PrivateRoute path="/admin/dashboard">
               <Admin />
+
             </PrivateRoute>
+            {/* <PrivateRoute path="/admin">
+              <Admin />
+            </PrivateRoute> */}
             <Route path="*">
               <NotFound></NotFound>
             </Route>

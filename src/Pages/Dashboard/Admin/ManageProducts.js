@@ -2,29 +2,37 @@ import './Dashboard.css';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios'
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 
-function Tabled() {
+function ManageProducts() {
     const { user } = useAuth();
-    const [booking, setBooking] = useState([])
+    const [watches, setWatches] = useState([])
     const [loading, setLoadiong] = useState(false)
 
     console.log(user)
-
     useEffect(() => {
-        fetch('http://localhost:5000/orders?email=' + user?.email)
+        fetch('http://localhost:5000/watches')
             .then(res => res.json())
-            .then(data => setBooking(data));
+            .then(data => setWatches(data));
     }, [loading])
 
-    const cancelBooking = (obj) => {
+    const deleteWatch = (obj) => {
         const flag = window.confirm("Are you sure?");
         if (flag) {
-            axios.get('http://localhost:5000/orders/cancel/' + obj._id).then((res) => {
+            axios.delete('http://localhost:5000/watches/' + obj._id).then((res) => {
                 setLoadiong(!loading)
             })
         }
-    }
+    };
+
+    // const acceptBooking = (obj) => {
+    //     const flag = window.confirm("Are you sure?");
+    //     if (flag) {
+    //         axios.get('http://localhost:5000/orders/accept/' + obj._id).then((res) => {
+    //             setLoadiong(!loading)
+    //         })
+    //     }
+    // };
 
     return (
         <>
@@ -36,25 +44,27 @@ function Tabled() {
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Package Name</th>
-                                <th scope="col">Address</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Description</th>
+                                {/* <th scope="col">Address</th>
                                 <th scope="col">Phone</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Status</th> */}
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {booking.length > 0 && booking.map((obj, index) => {
+                            {watches.length > 0 && watches.map((obj, index) => {
                                 return <tr>
                                     <th >{index + 1}</th>
                                     <td>{obj.name}</td>
-                                    <td>{obj.email}</td>
-                                    <td>{obj.watch_name}</td>
-                                    <td>{obj.address}</td>
+                                    <td>{obj.fee}</td>
+                                    <td>{obj.description}</td>
+                                    {/* <td>{obj.address}</td>
                                     <td>{obj.phone}</td>
-                                    <td>{obj.status}</td>
-                                    <td>{obj.status !== "pending" ? "" : <button onClick={() => cancelBooking(obj)} className="btn btn-sm btn-danger">Cancel</button>}</td>
+                                    <td>{obj.status}</td> */}
+                                    <td>
+                                        <button onClick={() => deleteWatch(obj)} className="btn btn-sm btn-danger">Delete</button>
+                                    </td>
                                 </tr>
                             })}
 
@@ -66,4 +76,4 @@ function Tabled() {
     );
 }
 
-export default Tabled;
+export default ManageProducts;

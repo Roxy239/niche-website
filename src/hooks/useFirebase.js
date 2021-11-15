@@ -60,6 +60,7 @@ const useFirebase = () => {
             })
             .then(() => {
                 swal("Good job!", "Account has been created!", "success")
+                logout();
             })
 
             .catch((error) => {
@@ -189,6 +190,7 @@ const useFirebase = () => {
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
+            setRole("");
             swal("Logout Successful!", "You are logged out!", "success");
             // Sign-out
         }).catch((error) => {
@@ -198,6 +200,7 @@ const useFirebase = () => {
     }
 
     return {
+        role,
         user,
         isLoading,
         authError,

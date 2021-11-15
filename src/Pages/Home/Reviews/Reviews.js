@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from "react-elastic-carousel";
 import axios from "axios"
+import Rating from './Rating';
+import "./reviews.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
@@ -20,10 +24,10 @@ const Reviews = () => {
     const styleComponent = {
         "display": "flex",
         "flex-direction": "column",
-        "width": "350px",
+        "width": "450px",
         "justify-content": "center",
         "align-items": "center",
-        "height": "250px",
+        "height": "3000px",
         "color": "#000",
         "background-color": "whitesmoke",
         "margin": "0 15px",
@@ -41,17 +45,39 @@ const Reviews = () => {
 
     return (
         <div>
-            <h2>Reviews</h2>
+            <h2 className="text-primary mt-5">Reviews</h2>
             <Carousel pagination={false} breakPoints={breakPoints}>
                 {reviews.length > 0 && reviews.map((obj) => {
-                    return <div style={styleApp}>
+                    return <>
+                        <div style={styleApp} className="mb-2">
 
-                        <div style={styleComponent}>
-                            <p>{obj.review}</p>
-                            <h5>{obj.email}</h5>
+                            <div style={styleComponent}>
+                                <p>{obj.review}</p>
+
+                                <Rating rating={obj.rating} />
+
+                                <h5>{obj.email}</h5>
+                            </div>
+
+
                         </div>
 
-                    </div>
+
+
+
+                        {/* <div class="colO">
+                            <div class="testimonialO">
+                                <img src="./ratingUser.png" alt="" />
+                                <div class="nameO">{obj.name}</div>
+                                <div class="starsO">
+                                    <Rating rating={obj.rating} />
+                                </div>
+                                <p>
+                                    {obj.review}
+                                </p>
+                            </div>
+                        </div> */}
+                    </>
                 })}
             </Carousel>
 

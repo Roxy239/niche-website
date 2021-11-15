@@ -5,7 +5,8 @@ import useAuth from '../../../hooks/useAuth';
 import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
-    const { user, logout } = useAuth();
+    const { role, user, logout } = useAuth();
+
     return (
         <>
             <Navbar bg="white" sticky="top" collapseOnSelect expand="lg" >
@@ -19,8 +20,8 @@ const Header = () => {
                         <Nav.Link as={Link} to="/allwatches">Explore Collection</Nav.Link>
                         {/* <Nav.Link as={Link} to="/login">Login</Nav.Link> */}
                         {user?.email && <>
-                            <Nav.Link as={Link} to="/mylist">My Order</Nav.Link>
-                            <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                            {/* <Nav.Link as={Link} to="/mylist">My Order</Nav.Link> */}
+                            <Nav.Link as={Link} to={role === "admin" ? "/admin/dashboard" : "/dashboard"}>Dashboard</Nav.Link>
                         </>}
                         {user?.email ?
                             <Button onClick={logout} variant="secondary">Logout</Button> :
