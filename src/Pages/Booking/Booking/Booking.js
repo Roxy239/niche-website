@@ -16,12 +16,12 @@ const Booking = () => {
     const onSubmit = data => {
         // console.log(data)
         data = { ...data, watch_name: watch.name }
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://nameless-sands-58431.herokuapp.com/orders', data)
             .then(res => {
 
 
                 if (res.data) {
-                    history.push('/mylist')
+                    history.push('/')
                 }
                 // console.log(res);
             })
@@ -31,7 +31,7 @@ const Booking = () => {
     const [watch, setwatch] = useState({})
     const [watches, setwatches] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/watches')
+        fetch('https://nameless-sands-58431.herokuapp.com/watches')
             .then(res => res.json())
             .then(data => setwatches(data));
     }, [])

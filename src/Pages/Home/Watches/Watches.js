@@ -32,13 +32,13 @@ const Watches = () => {
             let filter_data = watches.filter(obj => obj.name.toLowerCase().includes(searchText.toLowerCase()));
             setWatches(filter_data)
         } else {
-            axios.get('http://localhost:5000/watches').then((res) => {
+            axios.get('https://nameless-sands-58431.herokuapp.com/watches').then((res) => {
                 setWatches(res.data)
             }).catch((error) => {
 
             });
 
-            // fetch('http://localhost:5000/watches')
+            // fetch('https://nameless-sands-58431.herokuapp.com/watches')
             //     .then(res => {
             //         console.log(res)
             //         res.json();

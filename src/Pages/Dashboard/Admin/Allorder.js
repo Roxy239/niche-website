@@ -11,7 +11,7 @@ function Allorder() {
 
     console.log(user)
     useEffect(() => {
-        fetch('http://localhost:5000/orders/adminall')
+        fetch('https://nameless-sands-58431.herokuapp.com/orders/adminall')
             .then(res => res.json())
             .then(data => setBooking(data));
     }, [loading])
@@ -19,7 +19,7 @@ function Allorder() {
     const cancelBooking = (obj) => {
         const flag = window.confirm("Are you sure?");
         if (flag) {
-            axios.get('http://localhost:5000/orders/cancel/' + obj._id).then((res) => {
+            axios.get('https://nameless-sands-58431.herokuapp.com/orders/cancel/' + obj._id).then((res) => {
                 setLoadiong(!loading)
             })
         }
@@ -28,7 +28,7 @@ function Allorder() {
     const acceptBooking = (obj) => {
         const flag = window.confirm("Are you sure?");
         if (flag) {
-            axios.get('http://localhost:5000/orders/accept/' + obj._id).then((res) => {
+            axios.get('https://nameless-sands-58431.herokuapp.com/orders/accept/' + obj._id).then((res) => {
                 setLoadiong(!loading)
             })
         }

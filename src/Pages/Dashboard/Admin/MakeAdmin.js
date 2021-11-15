@@ -11,7 +11,7 @@ function MakeAdmin() {
 
     console.log(user)
     useEffect(() => {
-        fetch('http://localhost:5000/users/alluser')
+        fetch('https://nameless-sands-58431.herokuapp.com/users/alluser')
             .then(res => res.json())
             .then(data => setUsers(data));
     }, [loading])
@@ -19,7 +19,7 @@ function MakeAdmin() {
     // const cancelBooking = (obj) => {
     //     const flag = window.confirm("Are you sure?");
     //     if (flag) {
-    //         axios.get('http://localhost:5000/orders/cancel/' + obj._id).then((res) => {
+    //         axios.get('https://nameless-sands-58431.herokuapp.com/orders/cancel/' + obj._id).then((res) => {
     //             setLoadiong(!loading)
     //         })
     //     }
@@ -28,7 +28,7 @@ function MakeAdmin() {
     const makeAdmin = (obj) => {
         const flag = window.confirm("Are you sure?");
         if (flag) {
-            axios.get('http://localhost:5000/users/makeadmin/' + obj._id).then((res) => {
+            axios.get('https://nameless-sands-58431.herokuapp.com/users/makeadmin/' + obj._id).then((res) => {
                 setLoadiong(!loading)
             })
         }

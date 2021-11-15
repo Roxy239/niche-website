@@ -24,7 +24,7 @@ const useFirebase = () => {
 
     const createUser = (email, name) => {
 
-        axios.post('http://localhost:5000/users', {
+        axios.post('https://nameless-sands-58431.herokuapp.com/users', {
             email: email,
             name: name
         })
@@ -108,7 +108,7 @@ const useFirebase = () => {
 
     // const createUser = (obj) => {
 
-    //     axios.post('http://localhost:5000/users', {
+    //     axios.post('https://nameless-sands-58431.herokuapp.com/users', {
     //         email: email,
     //         name: displayName
     //     })
@@ -142,7 +142,7 @@ const useFirebase = () => {
     //
 
     const findUserRole = (email) => {
-        axios.get('http://localhost:5000/users?email=' + email)
+        axios.get('https://nameless-sands-58431.herokuapp.com/users?email=' + email)
             .then((res) => {
 
                 // handle success
@@ -191,7 +191,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
             setRole("");
-            swal("Logout Successful!", "You are logged out!", "success");
+            swal(" Successful!", "Operation done!", "success");
             // Sign-out
         }).catch((error) => {
 

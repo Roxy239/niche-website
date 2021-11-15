@@ -11,14 +11,14 @@
 
 //     console.log(user)
 //     useEffect(() => {
-//         fetch('http://localhost:5000/orders?email=' + user?.email)
+//         fetch('https://nameless-sands-58431.herokuapp.com/orders?email=' + user?.email)
 //             .then(res => res.json())
 //             .then(data => setBooking(data));
 //     }, [loading])
 //     const cancelBooking = (obj) => {
 //         const flag = window.confirm("Are you sure?");
 //         if (flag) {
-//             axios.get('http://localhost:5000/orders/cancel/' + obj._id).then((res) => {
+//             axios.get('https://nameless-sands-58431.herokuapp.com/orders/cancel/' + obj._id).then((res) => {
 //                 setLoadiong(!loading)
 //             })
 //         }

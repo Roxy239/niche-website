@@ -11,7 +11,7 @@ function ReviewInput() {
     console.log(user);
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://nameless-sands-58431.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data) {
                     alert('added successfully');

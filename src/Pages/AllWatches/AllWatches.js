@@ -20,7 +20,7 @@ const AllWatches = () => {
             let filter_data = watches.filter(obj => obj.name.includes(searchText));
             setWatches(filter_data)
         } else {
-            fetch('http://localhost:5000/watches')
+            fetch('https://nameless-sands-58431.herokuapp.com/watches')
                 .then(res => res.json())
                 .then(data => setWatches(data))
 

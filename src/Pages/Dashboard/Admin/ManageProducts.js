@@ -11,7 +11,7 @@ function ManageProducts() {
 
     console.log(user)
     useEffect(() => {
-        fetch('http://localhost:5000/watches')
+        fetch('https://nameless-sands-58431.herokuapp.com/watches')
             .then(res => res.json())
             .then(data => setWatches(data));
     }, [loading])
@@ -19,7 +19,7 @@ function ManageProducts() {
     const deleteWatch = (obj) => {
         const flag = window.confirm("Are you sure?");
         if (flag) {
-            axios.delete('http://localhost:5000/watches/' + obj._id).then((res) => {
+            axios.delete('https://nameless-sands-58431.herokuapp.com/watches/' + obj._id).then((res) => {
                 setLoadiong(!loading)
             })
         }
@@ -28,7 +28,7 @@ function ManageProducts() {
     // const acceptBooking = (obj) => {
     //     const flag = window.confirm("Are you sure?");
     //     if (flag) {
-    //         axios.get('http://localhost:5000/orders/accept/' + obj._id).then((res) => {
+    //         axios.get('https://nameless-sands-58431.herokuapp.com/orders/accept/' + obj._id).then((res) => {
     //             setLoadiong(!loading)
     //         })
     //     }

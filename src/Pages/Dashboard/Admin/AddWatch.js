@@ -8,7 +8,7 @@ const AddWatch = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/watches', data)
+        axios.post('https://nameless-sands-58431.herokuapp.com/watches', data)
             .then(res => {
 
                 if (res.data) {
